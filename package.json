@@ -2,7 +2,7 @@
     "name": "rider-align",
     "displayName": "vsRider",
     "description": "Align fields in Rider style",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/nhathuy7996/vsCodeRiderformat.git"
@@ -19,7 +19,8 @@
     },
     "main": "./out/extension.js",
     "activationEvents": [
-        "onCommand:rider-align.alignFields"
+        "onCommand:rider-align.alignFields",
+        "onLanguage:csharp"
     ],
     "contributes": {
         "commands": [{
