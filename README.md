@@ -20,3 +20,17 @@ Extension này giúp căn chỉnh các trường (fields) theo phong cách của
 ## License
 
 MIT
+
+### Automatic Formatting
+- Formats code automatically on save
+- Supports manual formatting with keyboard shortcut
+- Follows Rider's code style conventions
+
+#### Spacing Rules
+- Operators: Spaces around operators (`x = y + z`)
+- Keywords: Space between keyword and parenthesis (`if (condition)`)
+- Commas: Space after commas (`Method(x, y, z)`)
+- Generics: No spaces within angle brackets (`List<string>`)
+- Arrays: No spaces in array declaration (`int[]`)
+
+#### Method Parameters
