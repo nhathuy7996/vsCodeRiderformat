@@ -3,7 +3,17 @@
     "displayName": "vsRider",
     "description": "Align fields in Rider style",
     "version": "0.0.1",
-    "publisher": "Huynn | Game dev toi",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nhathuy7996/vsCodeRiderformat.git"
+    },
+    "author": {
+        "name": "Huynn | Game dev toi",
+        "email": "nhat.huy.7996@gmail.com",
+        "url": "https://github.com/nhathuy7996"
+    },
+    "icon": "assets/Icon.jpeg",
+    "publisher": "nhathuy7996",
     "engines": {
         "vscode": "^1.85.0"
     },
