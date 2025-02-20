@@ -115,6 +115,42 @@ function formatDocument(document: vscode.TextDocument): vscode.TextEdit[] {
         edits.push(vscode.TextEdit.replace(new vscode.Range(startPos, endPos), newText));
     }
 
+    // Format lambda expressions and anonymous functions
+    const lambdaRegex = /(\s*)(\([^)]*\))\s*=>\s*([^{;\n]+|{[^}]*})/g;
+    let lambdaMatch;
+    while ((lambdaMatch = lambdaRegex.exec(text))) {
+        const startPos = document.positionAt(lambdaMatch.index);
+        const endPos = document.positionAt(lambdaMatch.index + lambdaMatch[0].length);
+        
+        const params = lambdaMatch[2].trim();
+        const body = lambdaMatch[3].trim();
+        
+        // Format based on different cases
+        let newText;
+        if (body.startsWith('{')) {
+            // Multi-line lambda
+            newText = `${params} => ${body}`;
+        } else if (body.startsWith('(') && body.endsWith(')')) {
+            // Type cast in lambda
+            newText = `${params} => ${body}`;
+        } else {
+            // Single-line lambda
+            newText = `${params} => ${body}`;
+        }
+        
+        edits.push(vscode.TextEdit.replace(new vscode.Range(startPos, endPos), newText));
+    }
+
+    // Format type cast expressions
+    const typeCastRegex = /\(\s*([a-zA-Z][a-zA-Z0-9_]*)\s*\)/g;
+    let typeCastMatch;
+    while ((typeCastMatch = typeCastRegex.exec(text))) {
+        const startPos = document.positionAt(typeCastMatch.index);
+        const endPos = document.positionAt(typeCastMatch.index + typeCastMatch[0].length);
+        const newText = `(${typeCastMatch[1]})`;
+        edits.push(vscode.TextEdit.replace(new vscode.Range(startPos, endPos), newText));
+    }
+
     return edits;
 }
 
