@@ -1,0 +1,37 @@
+{
+    "name": "rider-align",
+    "displayName": "vsRider",
+    "description": "Align fields in Rider style",
+    "version": "0.0.1",
+    "publisher": "Huynn | Game dev toi",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "main": "./out/extension.js",
+    "activationEvents": [
+        "onCommand:rider-align.alignFields"
+    ],
+    "contributes": {
+        "commands": [{
+            "command": "rider-align.alignFields",
+            "title": "Align Fields (Rider Style)"
+        }],
+        "keybindings": [{
+            "command": "rider-align.alignFields",
+            "key": "ctrl+alt+a",
+            "mac": "cmd+alt+a",
+            "when": "editorTextFocus"
+        }]
+    },
+    "scripts": {
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.85.0",
+        "@types/node": "^16.x.x",
+        "typescript": "^5.0.0"
+    }
+}
